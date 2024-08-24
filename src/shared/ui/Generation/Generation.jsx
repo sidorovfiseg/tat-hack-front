@@ -26,6 +26,7 @@ export default function Generation() {
   const [expanded, setExpanded] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [answer, setAnswer] = useState("");
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -34,9 +35,12 @@ export default function Generation() {
   const handleSubmit = async () => {
     try {
       setLoading(true);
-      const response = await axios.post(`${backendUrl}/`, {
+      const response = await axios.post(`${backendUrl}/chat/`, {
         data: inputValue,
       });
+
+      const answer = response.data.answer;
+      setAnswer(answer);
     } catch (error) {
       setError("Упс, произошла ошибка");
     } finally {
@@ -141,6 +145,7 @@ export default function Generation() {
             {loading ? "Генерируем ответ" : "Задать вопрос"}
           </LoadingButton>
         </Toolbar>
+        {answer !== "" ? <Typography>{answer}</Typography> : <></>}
       </Box>
     </Container>
   );
