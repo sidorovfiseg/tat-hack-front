@@ -42,11 +42,9 @@ export default function RootLayout({ children }) {
       className={`${pacifico.variable} ${source_code_pro.variable} ${montserrat.variable}`}
     >
       <body className="">
-        <NextThemeProvider attribute="class">
-          <Header />
-          {children}
-          <Footer />
-        </NextThemeProvider>
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   );

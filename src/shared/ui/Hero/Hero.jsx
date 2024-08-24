@@ -26,7 +26,7 @@ export default function Hero() {
   return (
     <Container maxWidth={false} className="relative">
       <video
-        className="absolute top-0 left-0 w-full h-full dark:bg-[#0f1214b3] object-cover -z-10  opacity-10"
+        className="absolute top-0 left-0 w-full h-full object-cover -z-10  opacity-10"
         autoPlay
         loop
         muted
